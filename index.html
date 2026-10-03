@@ -311,6 +311,52 @@
       }
     }
 
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 36px auto;
+    }
+
+    .feature-card {
+      background: rgba(18, 12, 28, 0.55);
+      border: 1px solid rgba(220, 180, 255, 0.15);
+      border-radius: 14px;
+      padding: 22px 20px;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 120, 140, 0.4);
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .feature-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .feature-desc {
+      font-size: 0.92rem;
+      color: #b5b5b5;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
     @media (max-width: 600px) {
       body {
         padding: 35px 16px;
@@ -320,6 +366,9 @@
       }
       .beacon-card {
         padding: 12px 22px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -340,7 +389,7 @@
     <div class="image-wrapper">
       <div class="image-glow"></div>
       <img
-        src="rush-2027.jpg"
+        src="images/Rush2027RedStar.png?v=2027"
         alt="Rush 2027 - Works of Gifted Hands"
         class="main-image"
       />
@@ -361,9 +410,23 @@
       In 2027, the fellowship reconvenes. Bring your hungry mind, your deepest album cuts, and your open eyes.
     </p>
 
+    <!-- Quiz & Cities Section -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F3B8;</div>
+        <h2 class="feature-title">The Quiz</h2>
+        <p class="feature-desc">Dynamic Rush trivia spanning over four decades of progressive rock mastery, odd time signatures, philosophical lyrics, and deep studio cuts.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F30C;</div>
+        <h2 class="feature-title">The Cities</h2>
+        <p class="feature-desc">Connect with Rush fans across the federation. Coordinate local pre-show meetups, listening parties, and fan gatherings in your city.</p>
+      </div>
+    </div>
+
     <div class="beacon-card">
       <span class="starlight-dot"></span>
-      Assume Control &bull; Rush Rock Trivia 2027
+      Rush 2027 Quiz &amp; Cities &bull; Coming 2027
     </div>
 
     <footer>
