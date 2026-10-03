@@ -23,6 +23,9 @@ Visit the live site: [rush2027.fyi](https://rush2027.fyi)
 rush-rock-trivia-2027/
   index.html        # Main landing page
   rush-2027.jpg     # Hero image (Rush 2027 Starman graphic)
+  og-image.jpg      # 1200x630 social share preview (Facebook, X, etc.)
+  images/
+    Rush2027RedStar.png # Rush 2027 logo (for the app and share preview)
   README.md         # This file
   LICENSE           # MIT License
   .gitignore        # Git ignore rules
