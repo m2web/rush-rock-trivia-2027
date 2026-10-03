@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rush 2027 Cities | Coming Soon</title>
+  <meta name="description" content="Rush 2027 Cities: Connect with Rush fans across the globe. Coordinate local pre-show meetups, listening parties, and fan gatherings." />
+
+  <!-- Social share preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rush 2027" />
+  <meta property="og:url" content="https://www.rush2027.fyi/cities" />
+  <meta property="og:title" content="Rush 2027 Cities | Coming Soon" />
+  <meta property="og:description" content="Connect with Rush fans across the globe. Find local meetups, fan parties, and tour gatherings in your city." />
+  <meta property="og:image" content="https://www.rush2027.fyi/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000000;
+      background-image: 
+        radial-gradient(ellipse at 50% 15%, rgba(65, 105, 225, 0.16) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 45%, rgba(220, 20, 60, 0.16) 0%, transparent 60%),
+        radial-gradient(circle at 50% 85%, rgba(138, 43, 226, 0.12) 0%, transparent 50%);
+      color: #eaeaea;
+      min-height: 100vh;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .starlight-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(1px 1px at 25px 35px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 110px 75px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 175px 145px, #ffccd5, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 230px 210px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 290px 45px, rgba(255, 230, 200, 0.9), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 340px 290px, #e8ddff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 410px 180px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 460px 370px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 520px 90px, rgba(255, 255, 255, 0.95), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 580px 260px, #ffb3ba, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 640px 140px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 690px 320px, #bae1ff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 740px 60px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 810px 230px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 870px 380px, #ffd1dc, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 930px 115px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 960px 270px, #ffeedd, rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 1000px 500px;
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: celestialEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-back {
+      align-self: flex-start;
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #b5b5b5;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Cinzel', serif;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-back:hover {
+      color: #ff9eaa;
+      transform: translateX(-4px);
+    }
+
+    .pre-tagline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.78rem, 1.8vw, 0.92rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #ff9eaa;
+      margin-bottom: 14px;
+      text-shadow: 0 0 15px rgba(255, 158, 170, 0.5);
+      font-weight: 700;
+    }
+
+    .headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #ffffff 40%, #e0c3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 25px rgba(220, 20, 60, 0.25));
+    }
+
+    .coming-soon-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(65, 105, 225, 0.18);
+      border: 1px solid rgba(138, 180, 255, 0.45);
+      border-radius: 50px;
+      padding: 8px 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 28px;
+      box-shadow: 0 0 20px rgba(65, 105, 225, 0.25);
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      background: #5b9aff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #5b9aff;
+      animation: pulseBlue 1.8s infinite;
+    }
+
+    .image-wrapper {
+      position: relative;
+      margin: 0 0 28px 0;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      background: radial-gradient(circle, rgba(65, 105, 225, 0.35) 0%, rgba(220, 20, 60, 0.2) 50%, transparent 70%);
+      filter: blur(25px);
+      z-index: -1;
+      transform: scale(1.05);
+    }
+
+    .main-image {
+      max-width: min(320px, 70vw);
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.95),
+        0 0 35px rgba(65, 105, 225, 0.25);
+    }
+
+    .intro-text {
+      font-size: clamp(1rem, 1.9vw, 1.12rem);
+      font-weight: 300;
+      color: #c9cdd8;
+      max-width: 660px;
+      margin: 0 auto 34px auto;
+      line-height: 1.8;
+    }
+
+    .intro-text strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Features teaser grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto 36px auto;
+    }
+
+    .feature-card {
+      background: rgba(18, 12, 28, 0.55);
+      border: 1px solid rgba(220, 180, 255, 0.15);
+      border-radius: 14px;
+      padding: 24px 22px;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(138, 180, 255, 0.4);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #9ebaff;
+      margin-bottom: 8px;
+    }
+
+    .feature-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .feature-desc {
+      font-size: 0.92rem;
+      color: #b5b5b5;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .action-box {
+      margin: 10px 0 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(65, 105, 225, 0.25) 0%, rgba(220, 20, 60, 0.25) 100%);
+      border: 1px solid rgba(138, 180, 255, 0.45);
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      box-shadow: 0 0 35px rgba(65, 105, 225, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 45px rgba(65, 105, 225, 0.4);
+    }
+
+    footer {
+      margin-top: 45px;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6a6c75;
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ff9eaa;
+    }
+
+    @keyframes pulseBlue {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(91, 154, 255, 0.7);
+      }
+      70% {
+        transform: scale(1.15);
+        box-shadow: 0 0 0 10px rgba(91, 154, 255, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(91, 154, 255, 0);
+      }
+    }
+
+    @keyframes celestialEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 30px 16px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="starlight-overlay"></div>
+
+  <main class="container">
+    <a href="/" class="nav-back">&larr; Return to Solar Federation</a>
+
+    <div class="pre-tagline">
+      Global Fan Gatherings &bull; Expeditions
+    </div>
+
+    <h1 class="headline">
+      Rush 2027 Cities
+    </h1>
+
+    <div class="coming-soon-pill">
+      <span class="pulse-dot"></span>
+      Coming Soon &bull; Tour &amp; Meetups
+    </div>
+
+    <div class="image-wrapper">
+      <div class="image-glow"></div>
+      <img
+        src="/images/Rush2027RedStar.png?v=2027"
+        alt="Rush 2027 Cities"
+        class="main-image"
+      />
+    </div>
+
+    <p class="intro-text">
+      From Bangkok to Toronto, signals radiate from every corner of the Solar Federation. Find fellow Rush disciples in your hometown, coordinate pre-show gatherings, and celebrate five decades of timeless sound and vision.
+    </p>
+
+    <!-- Cities Features -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-tag">Local Directory</span>
+        <h2 class="feature-title">City Expeditions</h2>
+        <p class="feature-desc">Discover active fan groups, listening lounges, tribute band nights, and meetup hubs across major metropolitan regions.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-tag">Host &amp; Coordinate</span>
+        <h2 class="feature-title">Register Gatherings</h2>
+        <p class="feature-desc">Create your own fan meetup or party. Set the venue, date, and details to invite local fans directly through the platform.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-tag">Interactive Hub</span>
+        <h2 class="feature-title">Federation Map</h2>
+        <p class="feature-desc">Explore meetups visually across North America and worldwide with live RSVP counts and community check-ins.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-tag">Real-Time Sync</span>
+        <h2 class="feature-title">Instant Updates</h2>
+        <p class="feature-desc">Powered by Cloudflare edge databases for zero-lag RSVP syncing, venue updates, and fan communication.</p>
+      </div>
+    </div>
+
+    <div class="action-box">
+      <a href="/" class="cta-button">
+        &larr; Back to Main Transmission
+      </a>
+    </div>
+
+    <footer>
+      rush2027.fyi &bull; The Elder Race Continues the Tour
+    </footer>
+  </main>
+</body>
+</html>
